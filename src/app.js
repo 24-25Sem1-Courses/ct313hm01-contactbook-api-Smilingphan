@@ -1,9 +1,7 @@
-require('dotenv').config();
-
 const express = require('express');
 const cors = require('cors');
 
-const JSend = require('./jsend');
+const JSend = require('./jsend.js');
 const contactsRouter = require('./routes/contacts.routes.js');
 const {
     resourceNotFound,
@@ -17,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     return res.json(JSend.success());
 });
+app.use('/public', express.static('public'));
 
 contactsRouter.setup(app);
 
