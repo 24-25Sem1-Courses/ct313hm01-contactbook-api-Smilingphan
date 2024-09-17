@@ -7,6 +7,7 @@ const {
     resourceNotFound,
     handleError,
 } = require('./controllers/errors.controller.js');
+const { specs, swaggerUi } = require('./docs/swagger.js');
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     return res.json(JSend.success());
 });
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/public', express.static('public'));
 
 contactsRouter.setup(app);
