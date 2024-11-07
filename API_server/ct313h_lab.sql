@@ -1,0 +1,17 @@
+use ct313h_lab;
+
+CREATE TABLE `contacts` ( 
+`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, 
+`name` VARCHAR(255) NOT NULL, 
+`email` VARCHAR(255) DEFAULT NULL, 
+`address` VARCHAR(255) DEFAULT NULL, 
+`phone` VARCHAR(15) DEFAULT NULL, 
+`favorite` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0, 
+`avatar` VARCHAR(255) DEFAULT NULL, 
+PRIMARY KEY (`id`) USING BTREE 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; 
+select * from contacts;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Tran123@';
+
+-- Apply changes
+FLUSH PRIVILEGES;
